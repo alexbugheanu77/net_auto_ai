@@ -1,0 +1,4 @@
+Flask
+openai
+netmiko
+python-dotenv
