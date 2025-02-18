@@ -8,8 +8,9 @@ This tool allows you to automate network configuration, troubleshooting, and oth
 2. Create a virtual environment: `python3 -m venv venv`
 3. Activate the virtual environment: `source venv/bin/activate` (Linux/macOS) or `venv\Scripts\activate` (Windows)
 4. Install dependencies: `pip install -r requirements.txt`
-5. Configure `config.py` with your OpenAI API key and network device credentials.
-6. Run the web interface: `python web_interface.py`
+5. Export OPENAI_API_KEY="your_api_key_here"
+6. Configure `config.py` with your OpenAI API key and network device credentials.
+7. Run the web interface: `python web_interface.py`
 
 ## Usage
 
