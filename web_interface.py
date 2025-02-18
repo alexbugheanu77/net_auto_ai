@@ -1,8 +1,19 @@
 from flask import Flask, render_template, request
 from ai_engine import generate_network_commands
 from network_operations import execute_commands_on_device, get_device_facts
+from dotenv import load_dotenv  # Import load_dotenv
+import os
+
 
 app = Flask(__name__)
+
+# Load environment variables at the top of the script
+load_dotenv()
+
+# Print the entire os.environ dictionary for debugging
+print("Entire os.environ:")
+for key, value in os.environ.items():
+    print(f"{key}={value}")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -36,4 +47,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Enable debug mode for development
+    app.run(debug=True, host='0.0.0.0')  # Enable debug mode for development
+
