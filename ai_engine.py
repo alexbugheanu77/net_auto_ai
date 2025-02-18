@@ -15,19 +15,20 @@ def generate_network_commands(prompt):
         str:  The generated network commands (e.g., Cisco IOS commands), or None if an error occurred.
     """
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.OpenAI() #instantiate client
+
+        response = client.chat.completions.create(  # Use openai.chat.completions.create
             model=MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=TEMPERATURE,
             max_tokens=MAX_TOKENS
         )
 
-        return response['choices'][0]['message']['content']
+        return response.choices[0].message.content #Access the content of the message
 
     except Exception as e:
         print(f"Error during OpenAI API call: {e}")
         return None
-
 
 if __name__ == '__main__':
     # Example Usage
@@ -38,3 +39,4 @@ if __name__ == '__main__':
         print("Generated Commands:\n", commands)
     else:
         print("Failed to generate commands.")
+
